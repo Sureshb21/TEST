@@ -82,7 +82,7 @@
                                     </publisher>
                                 </configuration>
                             </execution>
-                <executions>           
+                </executions>           
         </plugin>
         </plugins>
     </build>
