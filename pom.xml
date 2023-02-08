@@ -82,8 +82,8 @@
                                     </publisher>
                                 </configuration>
                             </execution>
-                           
-        </plugins>
+                <executions>           
+        </plugin>
         </plugins>
     </build>
 </project>
