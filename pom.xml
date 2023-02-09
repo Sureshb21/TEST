@@ -34,6 +34,14 @@
         </dependency>
     </dependencies>
 
+<distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ARTIFACTORY-snapshots</name>
+        <url>http://13.232.16.226:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
+
     <!-- This blob of configuration tells Maven to make the jar executable. You can run it with:
     mvn clean package
     java -jar target/javaparser-maven-sample-1.0-SNAPSHOT-shaded.jar
@@ -61,31 +69,9 @@
                     </execution>
                 </executions>
             </plugin>
-		<plugin>
-                        <groupId>org.jfrog.buildinfo</groupId>
-                        <artifactId>artifactory-maven-plugin</artifactId>
-                        <version>3.5.1</version>
-                        <inherited>true</inherited>
-                        <executions>
-                            <execution>
-                                <id>build-info</id>
-                                <goals>
-                                    <goal>publish</goal>
-                                </goals>
-                                <configuration>
-                                    <publisher>
-                                        <contextUrl>http://13.232.16.226:8082/artifactory</contextUrl>
-                                        <username>admin</username>
-                                        <password>Welcome@123</password>
-                                        <repoKey>libs-release-local</repoKey>
-                                        <snapshotRepoKey>libs-snapshots-local</snapshotRepoKey>
-                                    </publisher>
-                                </configuration>
-                            </execution>
-                </executions>           
-        </plugin>
-       <plugin>
-      <artifactId>maven-assembly-plugin</artifactId>
+
+<plugin>
+     <artifactId>maven-assembly-plugin</artifactId>
       <configuration>
         <archive>
           <manifest>
@@ -98,14 +84,14 @@
       </configuration>
       <executions>
         <execution>
-          <id>make-assembly</id> 
+          <id>make-assembly</id>
           <phase>package</phase> <!-- packaging phase -->
           <goals>
             <goal>single</goal>
           </goals>
         </execution>
       </executions>
-    </plugin>		
+    </plugin>
         </plugins>
     </build>
 </project>
